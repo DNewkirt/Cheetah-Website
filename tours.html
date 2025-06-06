@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>All About Cheetahs:Tours</title>
+  <link rel="icon" href="pawprint.ico">
+  <link rel="stylesheet" type="text/css" href="aac.css">
+  <meta charset="utf-8"
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
+  <script src="aac.js"></script>
+
+  <script> 
+    function captureFormData(f)
+    {
+      // data will contain comma separated values for popup box
+      var data = "", i, len;
+        
+      // set len to number of form elements f contains
+      len = f.length;
+        
+      // traverse elements, one by one, where i is current element
+      for (i = 0; i < len; i++)
+      {
+        // append value of current form element to data 
+        data = data + f.elements[i].value;
+        
+        // if not at end of form, so not last form element yet
+        if (i < len-1) 
+        {
+          data = data + ", "; // append comma
+        }  
+      }
+      // in pop up display comma separated values stored in data
+      alert (data); 
+    }
+ </script>
+</head>
+
+<body>
+  <header>
+    <h1>All About Cheetahs</h1>
+    <a class="hmbgr" onclick="toggleNavBar()"><i class="fa fa-bars"></i></a>
+   </header>
+
+  <nav>
+   <ul>
+    <li><a href="index.html" class="menu-chosen" title="Go to Home page">Home</a></li>
+    <li><a href="cheetahs.html" class="menu-chosen" title="Go to Fact page">Cheetah Facts</a></li>
+    <li><a href="cheetahhabitat.html" class="menu-chosen" title="Go to Habitat page">Cheetah Habitats</a></li>
+    <li><a href="bigcats.html" class="menu-chosen" title="Go to Big Cat page">Other Wild Cats</a></li>
+    <li><a href="wild.html" class="menu-chosen" title="Go to Wild page">Cheetahs In The Wild</a></li>
+    <li><a href="tours.html" class="menu-chosen" title="Go to Tours page">Tours</a></li>
+   </ul>
+  </nav>
+
+  <main>
+   <h2>Tour Reservation for The Cheetah Safehouse</h2>
+        
+   <div style="text-align: center;">
+   <p>Required information is marked with an asterisk (*).</p>
+    
+   <form id="frm">
+   <div class="grid-container">
+    <div class="rightJustify">
+      <label for="myFName"> First Name: </label>
+    </div>
+    <div class="leftJustify">
+     <input type="text" id="myFName" name="myFName" >
+   </div>
+    
+   <div class="rightJustify">
+      <label for="myLName"> Last Name: </label>
+   </div>
+   <div class="leftJustify">
+     <input type="text" id="myLName" name="myLName" >
+   </div>
+    
+   <div class="rightJustify">
+      <label for="myEmail">* E-mail: </label>
+   </div>
+   <div class="leftJustify">
+      <input type="email" id="myEmail" name="myEmail" required>
+   </div>
+          
+   <div class="rightJustify">
+      <label for="myTour"> Tour: </label>
+   </div>
+   <div class="leftJustify">
+      <select id="myTour" name="myTour">
+          <option>Cheetah Meet and Greet</option>
+          <option>African Safari</option>
+          <option>Offical Cheetah Safehouse Tour</option>
+      </select>
+    </div>
+    
+    <div class="rightJustify">
+      <label for="myDate">Tour Date: </label>
+    </div>
+    <div class="leftJustify">
+      <input type="date" id="myDate" name="myDate">
+    </div>
+    
+    <div class="rightJustify">
+      <label for="myGroup">Group Size: </label>
+    </div>
+    <div class="leftJustify">
+     <input type="number" id="myGroup" name="myGroup" min="1" max="10">
+    </div>
+    
+    <div class="rightJustify">
+      <label for="myDCode"> Discount Code: </label>
+    </div>
+    <div class="leftJustify">
+      <input type="text" id="myDCode" name="myDCode">
+    </div>
+    
+   <div class="rightJustify">
+      <label for="myComments"> Comments: </label>
+    </div>
+    <div class="leftJustify">
+      <textarea id="myComments" name="myComments" rows="3" cols="50" ></textarea>
+    </div>
+    
+    <div class="rightJustify">
+      &nbsp;
+    </div>
+    <div class="leftJustify">
+      <input type="submit" id="mySubmit" value="Submit">
+    </div>
+    </div>
+    </form>
+    </div>
+    
+    <script>
+      $("#frm").validate();  // validate frm form elements
+    
+      $(function () {
+       $('#frm').submit(function () {  // redefine submit for frm
+          if($(this).valid()) {  // if this form is valid
+              captureFormData(this);  // send it to captureFormData
+          }
+        });
+      });
+    </script>
+  </main>
+
+  <footer>
+   <p id="addy">
+     Cheetah Safehouse<br>
+     431 Furry Paw St<br>
+     Grasslands, Botswana 12345
+   </p>
+
+   <p id="copy">
+     &copy; 2022 All About Cheetahs<br>
+     <a href="mailto:dnewkirt@hawkmail.hhcfl.edu" title="Send e-mail to dnewkirt@hawkmail.hccfl.edu">dnewkirt@hawkmail.hccfl.edu</a><br>
+     <span id="mobile"><a href="tel:818-272-9807">
+      <i class="fa fa-phone"></i>818-272-9807</a></span>
+    <span id="desktop">818-272-9807</span>
+   </p>
+ </footer>
+</body>
+</html>
